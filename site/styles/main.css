@@ -1,12 +1,28 @@
 body { 
-    padding-top: 80px; 
+    padding-top: 0px; 
     height: 100%;
+    /*background-color: #cfeba2;*/
+	background-image: url('https://cdn.theatlantic.com/thumbor/fqTaLn3MA4xYmgHKHZVSRO0Wnc8=/900x569/media/img/photo/2018/01/2000-days-on-mars-with-the-curiosit/m22_PIA17944/original.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed; 
+	background-size: 100% 100%;
 }
 
 td {
-    border: 1px solid #79d9ce;
+    border: 1px solid #a3660a;
     width: 20px;
     height: 20px;
+    background-color: #f7e994;
+}
+
+footer{
+	margin-top: 50px;
+	background-color: #c7964c;
+}
+
+#footerp{
+	position: absolute;
+	left:37%;
 }
 
 .key {

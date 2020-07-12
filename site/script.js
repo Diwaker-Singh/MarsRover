@@ -1,7 +1,7 @@
 
 
-var Rows = 25;
-var Cols = 40;
+var totalRows = 40;
+var totalCols = 60;
 var inProgress = false;
 var cellsToAnimate = [];
 var createWalls = false;
@@ -27,13 +27,13 @@ function generateGrid( rows, cols ) {
     return grid;
 }
 
-$("#maze").append(generateGrid(Rows,Cols));
+$("#maze").append(generateGrid(totalRows,totalCols));
 
 
 $( "td" ).mousedown(function(){
 	var index = $( "td" ).index( this );
-	var startCellIndex = (startCell[0] * (Cols)) + startCell[1];
-	var endCellIndex = (endCell[0] * (Cols)) + endCell[1];
+	var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+	var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
 	if ( !inProgress ){
 		// Clear board if just finished
 		if ( justFinished  && !inProgress ){ 
@@ -61,8 +61,8 @@ $( "td" ).mouseup(function(){
 $( "td" ).mouseenter(function() {
 	if (!createWalls && !movingStart && !movingEnd){ return; }
     var index = $( "td" ).index( this );
-    var startCellIndex = (startCell[0] * (Cols)) + startCell[1];
-	var endCellIndex = (endCell[0] * (Cols)) + endCell[1];
+    var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+	var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
     if (!inProgress){
     	if (justFinished){ 
     		clearBoard( keepWalls = true );
@@ -81,8 +81,8 @@ $( "td" ).mouseenter(function() {
 
 $( "td" ).click(function() {
     var index = $( "td" ).index( this );
-    var startCellIndex = (startCell[0] * (Cols)) + startCell[1];
-	var endCellIndex = (endCell[0] * (Cols)) + endCell[1];
+    var startCellIndex = (startCell[0] * (totalCols)) + startCell[1];
+	var endCellIndex = (endCell[0] * (totalCols)) + endCell[1];
     if ((inProgress == false) && !(index == startCellIndex) && !(index == endCellIndex)){
     	if ( justFinished ){ 
     		clearBoard( keepWalls = true );
