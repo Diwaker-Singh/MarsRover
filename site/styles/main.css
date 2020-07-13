@@ -9,7 +9,7 @@ body {
 }
 
 td {
-    border: 1px solid #a3660a;
+    border: 1px solid #f7e994;
     width: 20px;
     height: 20px;
     background-color: #f7e994;
@@ -47,8 +47,8 @@ ul {
 
 .wall {
 	transition : background-color 0.1s ease-in-out;
-	background-color: #262b28;
-	border-color: #262b28;
+	background-color: #a3660a;
+	border-color: #a3660a;
 }
 
 .none {
