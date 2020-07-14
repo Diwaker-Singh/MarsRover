@@ -8,8 +8,8 @@ var createWalls = false;
 var justFinished = false;
 var animationSpeed = "Fast";
 var animationState = null;
-var startCell = [11, 15];
-var endCell = [11, 17];
+var startCell = [20, 20];
+var endCell = [20, 40];
 var movingStart = false;
 var movingEnd = false;
 
@@ -370,13 +370,13 @@ async function animateCells(){
 function getDelay(){
 	var delay;
 	if (animationSpeed === "Slow"){
-		delay = 20;
-	} 
-	else if (animationSpeed === "Normal") {
 		delay = 10;
 	} 
-	else if (animationSpeed == "Fast") {
+	else if (animationSpeed === "Normal") {
 		delay = 5;
+	} 
+	else if (animationSpeed == "Fast") {
+		delay = 0;
 	}
 	console.log("Delay = " + delay);
 	return delay;
