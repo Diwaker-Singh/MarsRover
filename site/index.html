@@ -12,16 +12,46 @@
 	
 </head>
 <body>
+	<nav class="navbar navbar-expand-sm fixed-top" id="myNavbar">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    	<ul class="navbar-nav mr-auto">
+		      	<li class="nav-item dropdown btn btn-outline-primary bg-white" id="speed">
+		      		<a class="nav-link dropdown-toggle speedDisplay" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          	Speed: Fast
+		        	</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					    <a class="dropdown-item" href="#">Slow</a>
+					    <a class="dropdown-item" href="#">Normal</a>
+					    <a class="dropdown-item" href="#">Fast</a>
+					</div>
+				</li>
+	    	</ul>
+
+	      	<button class="btn btn-outline-success btn-space bg-white text-dark"type="submit"id="startBtn">Start</button>
+	      	<button class="btn btn-outline-warning btn-space bg-white"   type="submit" id="clearBtn">Clear Board</button>
+  		</div>
+ 	</nav>
 
 	<h1 style="text-align: center;">Mars Rover</h1> 
 	<p align="center"> Please wait for a while to see a mars rover Rovering around Obstacles created by a god like you !!</p>
 	<hr><hr><br>
 
-	<!-- Maze creation -->
 	<div id="bigTableContainer">
 		<div id="maze" align="center"></div>
 	</div>
-   
+
+
+	<div class ="d-flex flex-column" id="results">
+		<div class="d-flex justify-content-center"> 
+			<i id="resultsIcon" class="fas fa-exclamation"></i>
+		</div>
+		<div id="duration" class="d-flex justify-content-center"> 
+	 		Press start.
+	 	</div>
+	 	<div id="length" class="d-flex justify-content-center"> 	
+	 	</div>	 	
+	</div>
+
 	<footer align="left" >
 		<p id="footerp">
 			Link to Github Repo of my Project - <a href="https://github.com/Diwaker-Singh/MarsRover.git" target="_blank">Link to Github Repo</a><br>
@@ -30,7 +60,6 @@
 		Name: Diwaker Singh<br>
 		Contact : 7905355870<br>
 		Project : Microsoft's Mars Colonisation Program
-		
 	</footer>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
