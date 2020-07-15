@@ -370,10 +370,10 @@ async function animateCells(){
 function getDelay(){
 	var delay;
 	if (animationSpeed === "Slow"){
-		delay = 10;
+		delay = 30;
 	} 
 	else if (animationSpeed === "Normal") {
-		delay = 5;
+		delay = 15;
 	} 
 	else if (animationSpeed == "Fast") {
 		delay = 0;
