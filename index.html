@@ -15,7 +15,40 @@
 	<nav class="navbar navbar-expand-sm fixed-top" id="myNavbar">
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    	<ul class="navbar-nav mr-auto">
-		      	<li class="nav-item dropdown btn btn-outline-primary bg-white" id="speed">
+				<li class="dropdown btn btn-outline-dark btn-space bg-success text-dark" id="speed">
+		      		<a class="nav-link">INSTRUCTIONS</a>
+					<div class="dropdown-menu">
+						<div class="d-flex p-2">
+				 			<div class="key wall"></div>  
+				 			<div> Wall - Obstructed Path through which ROVER cannot Pass</div>
+				 		</div>
+				 		<div class="d-flex p-2">
+				 			<div class="key start"></div>  
+				 			<div> Start - Our Rover's Source Location from here it starts searching Path</div>
+				 		</div>
+				 		<div class="d-flex p-2">
+				 			<div class="key end"></div>  
+				 			<div> Target - Our Destination's Location till where we have to find Path</div>
+				 		</div>
+				 		<div class="d-flex p-2"> 
+				 			<div class="key visited"></div>  
+				 			<div> Visited - Location on MAP where we didn't find destination</div>
+				 		</div>
+				 		<div class="d-flex p-2">
+				 			<div class="key success"></div>  
+				 			<div> Shortest-Path - The Shortest Path found by our Hover</div>
+				 		</div>
+				 		<div class="d-flex p-2">
+				 			<div class="key"></div>  
+				 			<div> Unvisited - The Locations on MAP which are unaccessible or not required to be visited to reach Destination</div>
+				 		</div><br>
+						<b>Drag</b> and <b>Drop</b> within MAP to <b>Move</b> Source or Destination.<br>
+						<b>Click</b> or <b>Drag</b> to <b>create Wall</b> (continuous Drag) or Obstacles (Click) within MAP.<br>
+						Press <b>Start</b> after Creative Wall Designing to Start finding <b>Shortest Possible Path</b><br>
+						from Source (Rover) to Destination.
+					</div>
+				</li>
+		      	<li class="nav-item dropdown btn btn-space btn-outline-primary bg-white" id="speed">
 		      		<a class="nav-link dropdown-toggle speedDisplay" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		          	Animation Speed: Fast
 		        	</a>
@@ -26,15 +59,13 @@
 					</div>
 				</li>
 	    	</ul>
-
+			<h1 id="heading">Mars Rover</h1> 
 	      	<button class="btn btn-outline-success btn-space bg-white text-dark"type="submit"id="startBtn">Start</button>
 	      	<button class="btn btn-outline-warning btn-space bg-white"   type="submit" id="clearBtn">Clear Board</button>
   		</div>
  	</nav>
 
-	<h1 style="text-align: center;">Mars Rover</h1> 
-	<p align="center"> Please draw Obstacles to see a Mars Rover Rovering around Obstacles created by a god like you !!</p>
-	<hr><hr><br>
+	<hr><hr>
 
 	<div id="bigTableContainer">
 		<div id="maze" align="center"></div>
@@ -53,10 +84,10 @@
 	</div>
 
 	<footer align="left" >
-		<p id="footerp">
+		<h6 id="footerp">
 			<br>
-			Link to Github Repo of my Project - <a href="https://github.com/Diwaker-Singh/MarsRover.git" target="_blank">Link to Github Repo</a>
-		</p>
+			<a href="https://github.com/Diwaker-Singh/MarsRover.git" target="_blank">Link to Github Repository of my Project</a>
+		</h6>
 		Name: Diwaker Singh<br>
 		Contact : 7905355870<br>
 		Project : Microsoft's Mars Colonisation Program

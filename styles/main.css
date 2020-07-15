@@ -1,5 +1,6 @@
 body { 
-    padding-top: 0px; 
+	position: relative;
+    padding-top: 80px; 
     height: 100%;
     /*background-color: #cfeba2;*/
 	background-image: url('https://cdn.theatlantic.com/thumbor/fqTaLn3MA4xYmgHKHZVSRO0Wnc8=/900x569/media/img/photo/2018/01/2000-days-on-mars-with-the-curiosit/m22_PIA17944/original.jpg');
@@ -26,8 +27,16 @@ footer{
 	left:37%;
 }
 
+#heading{
+	text-decoration: underline;
+	position: absolute;
+	left: 43%;
+	padding-top: 10px;
+}
+
 .key {
-	border: 1px solid #79d9ce;
+	border: 1px solid #f7e994;
+    background-color: #f7e994;
 	width: 20px;
     height: 20px;
     margin-right: 10px;
@@ -48,8 +57,10 @@ ul {
 
 .wall {
 	transition : background-color 0.1s ease-in-out;
-	background-color: #a3660a;
-	border-color: #a3660a;
+	background-image: url('https://gamepedia.cursecdn.com/dayz_gamepedia/d/d4/Stone.png');
+	background-size: 100% 100%;
+	/*background-color: #a3660a;*/
+	/*border-color: #a3660a;*/
 }
 
 .none {
@@ -60,8 +71,8 @@ ul {
 
 .searching {
 	transition : background-color 0.08s ease-in-out;
-	background-color: #1cd4b5;
-	border-color: #1cd4b5;
+	background-color: #6fed26;
+	border-color: #6fed26;
 }
 
 .visited {
@@ -72,8 +83,8 @@ ul {
 
 .success {
 	transition : background-color 0.08s ease-in-out;
-	background-color: #ffee31;
-	border-color: #ffee31;
+	background-color: #6fed26;
+	border-color: #6fed26;
 }
 
 .start {
@@ -86,12 +97,15 @@ ul {
 	border-color: red;
 }
 
-#bigTableContainer {
-	margin-top: 30px;
-}
-
 .custom-section {
 	margin-bottom: 20px;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+#bigTableContainer {
+	margin-top: 30px;
 }
 
 #modalTitleContainer {
