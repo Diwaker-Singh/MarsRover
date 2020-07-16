@@ -85,11 +85,23 @@ ul {
 	transition : background-color 0.08s ease-in-out;
 	background-color: #6fed26;
 	border-color: #6fed26;
+	-webkit-animation: cssAnimation 2.3s; 
+	animation-delay: -2s;
+}
+@-webkit-keyframes cssAnimation {
+	0%{opacity: 1;}
+	99%{opacity: 1;}
+    100% {
+		background-image: url('https://i.ya-webdesign.com/images/vector-ufo-12.png');
+		background-size: 100% 100%;
+	}
 }
 
 .start {
-	background-color: green;
-	border-color: green;
+	background-image: url('https://i.ya-webdesign.com/images/vector-ufo-12.png');
+	background-size: 100% 100%;
+	/*background-color: green;
+	border-color: green;*/
 }
 
 .end {

@@ -121,18 +121,6 @@ function moveStartOrEnd(prevIndex, newIndex, startOrEnd){
     clearBoard(keepWalls = true);
 }
 
-function moveEnd(prevIndex, newIndex){
-	$($("td").find(prevIndex)).removeClass();
-
-	var newEnd = $("td").find(newIndex);
-	$(newEnd).removeClass();
-    $(newEnd).addClass("end");
-
-    var newEndX = Math.floor(newIndex / totalRows);
-	var newEndY = Math.floor(newIndex / totalCols);
-    startCell = [newStartX, newStartY];
-}
-
 /* ---------------------------- */
 /* --- Speed change control --- */
 /* ---------------------------- */
@@ -140,20 +128,9 @@ function moveEnd(prevIndex, newIndex){
 $( "#speed .dropdown-item").click(function(){
 	if ( inProgress ){ update("wait"); return; }
 	animationSpeed = $(this).text();
-	updateSpeedDisplay();
+	$(".speedDisplay").text("Animation Speed: "+animationSpeed);
 	console.log("Speed has been changd to: " + animationSpeed);
 });
-
-function updateSpeedDisplay(){
-	if (animationSpeed == "Slow")
-		$(".speedDisplay").text("Speed: Slow");
-	
-	else if (animationSpeed == "Normal")
-		$(".speedDisplay").text("Speed: Normal");
-	
-	else if (animationSpeed == "Fast")
-		$(".speedDisplay").text("Speed: Fast");
-}
 
 function update(message){
 	$("#resultsIcon").removeClass();
@@ -208,7 +185,8 @@ async function traverseGraph(){
 	await animateCells();
 	if ( pathFound ){ 
 		updateResults((endTime - startTime), true, countLength());
-	} else {
+	} 
+	else {
 		updateResults((endTime - startTime), false, countLength());
 	}
 	inProgress = false;
@@ -226,44 +204,27 @@ function makeWall(cell){
     }
 }
 
-function createVisited(){
-	var visited = [];
-	var cells = $("#maze").find("td");
-	for (var i = 0; i < totalRows; i++){
-		var row = [];
-		for (var j = 0; j < totalCols; j++){
-			if (cellIsAWall(i, j, cells)){
-				row.push(true);
-			} else {
-				row.push(false);
-			}
-		}
-		visited.push(row);
-	}
-	return visited;
-}
-
 function cellIsAWall(i, j, cells){
 	var cellNum = (i * (totalCols)) + j;
 	return $(cells[cellNum]).hasClass("wall");
 }
 
 function Queue() { 
- this.stack = new Array();
- this.dequeue = function(){
-  	return this.stack.pop(); 
- } 
- this.enqueue = function(item){
-  	this.stack.unshift(item);
-  	return;
- }
- this.empty = function(){
- 	return ( this.stack.length == 0 );
- }
- this.clear = function(){
- 	this.stack = new Array();
- 	return;
- }
+	this.stack = new Array();
+	this.dequeue = function(){
+		return this.stack.pop(); 
+	} 
+	this.enqueue = function(item){
+		this.stack.unshift(item);
+		return;
+	}
+	this.empty = function(){
+		return ( this.stack.length == 0 );
+	}
+	this.clear = function(){
+		this.stack = new Array();
+		return;
+	}
 }
 
 
@@ -300,23 +261,29 @@ function BFS(){
 	// Make any nodes still in the queue "visited"
 	while ( !myQueue.empty() ){
 		var cell = myQueue.dequeue();
-		var r = cell[0];
-		var c = cell[1];
 		cellsToAnimate.push( [cell, "visited"] );
 	}
 	// If a path was found, illuminate it
 	if (pathFound) {
 		var r = endCell[0];
 		var c = endCell[1];
+		starttoend(prev,r,c,cellsToAnimate);
 		cellsToAnimate.push( [[r, c], "success"] );
-		while (prev[r][c] != null){
-			var prevCell = prev[r][c];
-			r = prevCell[0];
-			c = prevCell[1];
-			cellsToAnimate.push( [[r, c], "success"] );
-		}
+		// while (prev[r][c] != null){
+		// 	var prevCell = prev[r][c];
+		// 	r = prevCell[0];
+		// 	c = prevCell[1];
+		// 	cellsToAnimate.push( [[r, c], "success"] );
+		// }
 	}
 	return pathFound;
+}
+
+function starttoend(prev,r,c,cellsToAnimate){
+	if(prev[r][c]!=null){
+		starttoend(prev,prev[r][c][0],prev[r][c][1],cellsToAnimate);
+		cellsToAnimate.push([[prev[r][c][0],prev[r][c][1]],"success"]);
+	}
 }
 
 function createPrev(){
@@ -327,8 +294,25 @@ function createPrev(){
 			row.push(null);
 		}
 		prev.push(row);
-	}
+	}	
 	return prev;
+}
+
+function createVisited(){
+	var visited = [];
+	var cells = $("#maze").find("td");
+	for (var i = 0; i < totalRows; i++){
+		var row = [];
+		for (var j = 0; j < totalCols; j++){
+			if (cellIsAWall(i, j, cells)){
+				row.push(true);
+			} else {
+				row.push(false);
+			}
+		}
+		visited.push(row);
+	}
+	return visited;
 }
 
 function getNeighbors(i, j){
