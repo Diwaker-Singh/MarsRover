@@ -1,7 +1,7 @@
 
 
-var totalRows = 40;
-var totalCols = 60;
+var totalRows = 30;
+var totalCols = 50;
 var inProgress = false;
 var cellsToAnimate = [];
 var createWalls = false;
@@ -10,8 +10,8 @@ var diagonal=false;
 var algorithm = "Breadth-First Search (BFS)";
 var animationSpeed = "Fast";
 var animationState = null;
-var startCell = [20, 20];
-var endCell = [20, 40];
+var startCell = [15, 17];
+var endCell = [15, 33];
 var movingStart = false;
 var movingEnd = false;
 
@@ -137,11 +137,13 @@ $( "#speed .dropdown-item").click(function(){
 $( "#Diagonal .dropdown-item").click(function(){
 	if ( inProgress ){ update("wait"); return; }
 	var diag = $(this).text();
-	if(diag=="Allow Diagonal Movement"){
+	if(diag=="Allow Diagonal"){
 		diagonal=true;
+		$(".Diagonal").text("Allow Diagonal");
 	}
 	else{
 		diagonal=false;
+		$(".Diagonal").text("No Diagonal Allowed");
 	}
 	console.log("Diagonal Movements valid? " + diagonal);
 });
@@ -221,6 +223,7 @@ async function traverseGraph(algorithm){
 	var startTime = Date.now();
 	var pathFound = executeAlgo();
 	var endTime = Date.now();
+	reorderCellsToAnimate();
 	await animateCells();
 	if ( pathFound ){ 
 		updateResults((endTime - startTime), true, countLength());
@@ -236,15 +239,20 @@ function executeAlgo(){
 	if (algorithm == "Depth-First Search (DFS)"){
 		var visited = createVisited();
 		var pathFound = DFS(startCell[0], startCell[1], visited);
-	} else if (algorithm == "Breadth-First Search (BFS)"){
+	} 
+	else if (algorithm == "Breadth-First Search (BFS)"){
 		var pathFound = BFS();
-	} else if (algorithm == "Dijkstra"){
+	} 
+	else if (algorithm == "Dijkstra"){
 		var pathFound = dijkstra();
-	} else if (algorithm == "A*"){
+	} 
+	else if (algorithm == "A*"){
 		var pathFound = AStar();
-	} else if (algorithm == "Greedy Best-First Search"){
+	} 
+	else if (algorithm == "Greedy Best-First Search"){
 		var pathFound = greedyBestFirstSearch();
-	} else if (algorithm == "Jump Point Search"){
+	} 
+	else if (algorithm == "Jump Point Search"){
 		var pathFound = jumpPointSearch();
 	}
 	return pathFound;
@@ -387,11 +395,16 @@ function BFS(){
 		cellsToAnimate.push( [cell, "visited"] );
 	}
 	// If a path was found, illuminate it
-	if (pathFound) {
+	if (pathFound){
 		var r = endCell[0];
 		var c = endCell[1];
-		starttoend(prev,r,c,cellsToAnimate);
 		cellsToAnimate.push( [[r, c], "success"] );
+		while (prev[r][c] != null){
+			var prevCell = prev[r][c];
+			r = prevCell[0];
+			c = prevCell[1];
+			cellsToAnimate.push( [[r, c], "success"] );
+		}
 	}
 	return pathFound;
 }
@@ -794,13 +807,6 @@ function greedyBestFirstSearch() {
 	return pathFound;
 }
 
-function starttoend(prev,r,c,cellsToAnimate){
-	if(prev[r][c]!=null){
-		starttoend(prev,prev[r][c][0],prev[r][c][1],cellsToAnimate);
-		cellsToAnimate.push([[prev[r][c][0],prev[r][c][1]],"success"]);
-	}
-}
-
 function createDistances(){
 	var distances = [];
 	for (var i = 0; i < totalRows; i++){
@@ -899,6 +905,20 @@ async function animateCells(){
 	return new Promise(resolve => resolve(true));
 }
 
+function reorderCellsToAnimate(){
+	var a=new Array();
+	for(var i=0;i<cellsToAnimate.length;i++){
+		if(cellsToAnimate[i][1]==="success"){
+			a.push(cellsToAnimate[i][0]);
+		}
+	}
+	var j=a.length-1;
+	for(var i=0;i<cellsToAnimate.length;i++){
+		if(cellsToAnimate[i][1]==="success"){
+			cellsToAnimate[i][0]=a[j--];
+		}
+	}
+}
 
 function getDelay(){
 	var delay;
