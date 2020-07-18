@@ -49,23 +49,40 @@
 					</div>
 				</li>
 		      	<li class="nav-item dropdown btn btn-space btn-outline-primary bg-white" id="speed">
-		      		<a class="nav-link dropdown-toggle speedDisplay" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          	Animation Speed: Fast
-		        	</a>
+		      		<a class="nav-link dropdown-toggle speedDisplay" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Speed: Fast</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					    <a class="dropdown-item" href="#">Slow</a>
 					    <a class="dropdown-item" href="#">Normal</a>
 					    <a class="dropdown-item" href="#">Fast</a>
 					</div>
 				</li>
+				<li class="nav-item dropdown btn btn-space btn-outline-primary bg-white" id="Diagonal">
+		      		<a class="nav-link dropdown-toggle speedDisplay" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Move Diagonal</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					    <a class="dropdown-item" href="#">Allow Diagonal Movement</a>
+					    <a class="dropdown-item" href="#">Don't Allow Diagonal Movement</a>
+					</div>
+				</li>
 	    	</ul>
 			<h1 id="heading">Mars Rover</h1> 
+			<div class="nav-item dropdown btn btn-outline-primary btn-space bg-white" id="algorithms">
+	        	<a class="dropdown-toggle algorithmDisplay" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Algorithms BFS</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="#">A*</a>
+					<a class="dropdown-item" href="#">Dijkstra</a>
+					<a class="dropdown-item" href="#">Greedy Best-First Search</a>
+				    <a class="dropdown-item" href="#">Breadth-First Search (BFS)</a>
+				    <a class="dropdown-item" href="#">Depth-First Search (DFS)</a>
+				    <a class="dropdown-item" href="#">Jump Point Search</a>
+				</div>
+		    </div>
 	      	<button class="btn btn-outline-success btn-space bg-white text-dark"type="submit"id="startBtn">Start</button>
 	      	<button class="btn btn-outline-warning btn-space bg-white"   type="submit" id="clearBtn">Clear Board</button>
   		</div>
  	</nav>
 
 	<hr><hr>
+
 
 	<div id="bigTableContainer">
 		<div id="maze" align="center"></div>
