@@ -137,13 +137,13 @@ $( "#speed .dropdown-item").click(function(){
 $( "#Diagonal .dropdown-item").click(function(){
 	if ( inProgress ){ update("wait"); return; }
 	var diag = $(this).text();
-	if(diag=="Allow Diagonal"){
+	if(diag=="Allow Diagonal Movement"){
 		diagonal=true;
-		$(".Diagonal").text("Allow Diagonal");
+		$(".Diagonal").text("Diagonal: YES");
 	}
 	else{
 		diagonal=false;
-		$(".Diagonal").text("No Diagonal Allowed");
+		$(".Diagonal").text("Diagonal: NO");
 	}
 	console.log("Diagonal Movements valid? " + diagonal);
 });
