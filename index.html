@@ -1,118 +1,34 @@
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<title>Assignment</title>
 	<meta charset="utf-8">
-	<title>Mars Rover</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styles/magic.min.css">
-	<link rel="stylesheet" type="text/css" href="styles/main.css">
-	<script src="https://kit.fontawesome.com/d1f3dd87b7.js" crossorigin="anonymous"></script>
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm fixed-top" id="myNavbar">
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    	<ul class="navbar-nav mr-auto">
-				<li class="dropdown btn btn-outline-dark btn-space bg-success text-dark" id="speed">
-		      		<a class="nav-link">INSTRUCTIONS</a>
-					<div class="dropdown-menu">
-						<div class="d-flex p-2">
-				 			<div class="key wall"></div>  
-				 			<div> Wall - Obstructed Path through which ROVER cannot Pass</div>
-				 		</div>
-				 		<div class="d-flex p-2">
-				 			<div class="key start"></div>  
-				 			<div> Start - Our Rover's Source Location from here it starts searching Path</div>
-				 		</div>
-				 		<div class="d-flex p-2">
-				 			<div class="key end"></div>  
-				 			<div> Target - Our Destination's Location till where we have to find Path</div>
-				 		</div>
-				 		<div class="d-flex p-2"> 
-				 			<div class="key visited"></div>  
-				 			<div> Visited - Location on MAP where we didn't find destination</div>
-				 		</div>
-				 		<div class="d-flex p-2">
-				 			<div class="key success"></div>  
-				 			<div> Shortest-Path - The Shortest Path found by our Hover</div>
-				 		</div>
-				 		<div class="d-flex p-2">
-				 			<div class="key"></div>  
-				 			<div> Unvisited - The Locations on MAP which are unaccessible or not required to be visited to reach Destination</div>
-				 		</div><br>
-						<b>Drag</b> and <b>Drop</b> within MAP to <b>Move</b> Source or Destination.<br>
-						<b>Click</b> or <b>Drag</b> to <b>create Wall</b> (continuous Drag) or Obstacles (Click) within MAP.<br>
-						Press <b>Start</b> after Creative Wall Designing to Start finding <b>Shortest Possible Path</b><br>
-						from Source (Rover) to Destination.
-					</div>
-				</li>
-		      	<li class="nav-item dropdown btn btn-space btn-outline-primary bg-white" id="speed">
-		      		<a class="nav-link dropdown-toggle speedDisplay" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Speed: Fast</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					    <a class="dropdown-item" href="#">Slow</a>
-					    <a class="dropdown-item" href="#">Normal</a>
-					    <a class="dropdown-item" href="#">Fast</a>
-					</div>
-				</li>
-				<li class="nav-item dropdown btn btn-space btn-outline-primary bg-white" id="Diagonal">
-		      		<a class="nav-link dropdown-toggle Diagonal" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Diagonal: NO</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					    <a class="dropdown-item" href="#">Allow Diagonal Movement</a>
-					    <a class="dropdown-item" href="#">Do Not Allow Diagonal Movement</a>
-					</div>
-				</li>
-	    	</ul>
-			<h1 id="heading">Mars Rover</h1> 
-			<div class="nav-item dropdown btn btn-outline-primary btn-space bg-white" id="algorithms">
-	        	<a class="dropdown-toggle algorithmDisplay" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Algorithms BFS</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#">A*</a>
-					<a class="dropdown-item" href="#">Dijkstra</a>
-					<a class="dropdown-item" href="#">Greedy Best-First Search</a>
-				    <a class="dropdown-item" href="#">Breadth-First Search (BFS)</a>
-				    <a class="dropdown-item" href="#">Depth-First Search (DFS)</a>
-				    <a class="dropdown-item" href="#">Jump Point Search</a>
-				</div>
-		    </div>
-	      	<button class="btn btn-outline-success btn-space bg-white text-dark"type="submit"id="startBtn">Start</button>
-	      	<button class="btn btn-outline-warning btn-space bg-white"   type="submit" id="clearBtn">Clear Board</button>
-  		</div>
- 	</nav>
-
-	<hr><hr>
-
-
-	<div id="bigTableContainer">
-		<div id="maze" align="center"></div>
+		<h1>Top Three Wonders</h1>
+		<div class="row">
+		
+			<div class="container col-lg-4 col-md-6 col-sm-12 ">
+				<section>
+							<div class="sub_heading" id="Stonehenge">Stonehenge UK</div>
+								<p>Stonehenge is a prehistoric monument in Wiltshire, England, two miles (3 km) west of Amesbury. It consists of a ring of standing stones, each around 13 feet (4.0 m) high, seven feet (2.1 m) wide, and weighing around 25 tons.  </p>
+				</section>
+			</div>	
+		<div class="col-lg-4 col-md-6 col-sm-12 container">
+				<section>
+							<div class="sub_heading" id="Treasury">The Treasury</div>
+								<p>Al-Khazneh is one of the most elaborate temples in Petra, a city of the Nabatean Kingdom inhabited by the Arabs in ancient times. As with most of the other buildings in this ancient town.</p>
+				</section>
+			</div>
+	   	<div class="col-lg-4 col-md-12 col-sm-12 container ">
+				<section>
+							<div class="sub_heading" id="Sophia">Hagia Sophia</div>
+							<p>Hagia Sophia, or the Ayasofya Mosque is a Late Antique place of worship in Istanbul that has served as a Greek Orthodox Christian patriarchal cathedral, a Roman Catholic cathedral, an Ottoman mosque, and a museum. </p>
+				</section>
+			</div>
+		
 	</div>
-
-
-	<div class ="d-flex flex-column" id="results">
-		<div class="d-flex justify-content-center"> 
-			<i id="resultsIcon" class="fas fa-exclamation"></i>
-		</div>
-		<div id="duration" class="d-flex justify-content-center"> 
-	 		Press start.
-	 	</div>
-	 	<div id="length" class="d-flex justify-content-center"> 	
-	 	</div>	 	
-	</div>
-
-	<footer align="left" >
-		<h6 id="footerp">
-			<br>
-			<a href="https://github.com/Diwaker-Singh/MarsRover.git" target="_blank">Link to Github Repository of my Project</a>
-		</h6>
-		Name: Diwaker Singh<br>
-		Contact : 7905355870<br>
-		Project : Microsoft's Mars Colonisation Program
-	</footer>
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
