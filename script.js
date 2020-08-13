@@ -578,31 +578,6 @@ function jumpPointSearch() {
 	return pathFound;
 }
 
-function checkForcedNeighbor(i, j, direction, neighbors, walls, stored){
-	//console.log(JSON.stringify(walls));
-	if (direction == "right"){
-		var isForcedNeighbor = ((i > 0) && walls[i - 1][j] && (!walls[i - 1][j + 1])) || ((i < (totalRows - 1)) &&  walls[i + 1][j] && (!walls[i + 1][j + 1]));
-		var neighbor = [i, j + 1];
-	} else if (direction == "left"){
-		var isForcedNeighbor = ((i > 0) && walls[i - 1][j] && !walls[i - 1][j - 1]) || ((i < (totalRows - 1)) && walls[i + 1][j] && !walls[i + 1][j - 1]);
-		var neighbor = [i, j - 1];
-	} else if (direction == "up"){
-		var isForcedNeighbor = ((j < (totalCols - 1)) && walls[i][j + 1] && !walls[i - 1][j + 1]) || ((j > 0) && walls[i][j - 1] && !walls[i - 1][j - 1]);
-		var neighbor = [i - 1, j];
-	} else {
-		var isForcedNeighbor = ((j < (totalCols - 1)) && walls[i][j + 1] && !walls[i + 1][j + 1]) || ((j > 0) && walls[i][j - 1] && !walls[i + 1][j - 1]);
-		var neighbor = [i + 1, j];
-	}
-	var xy = neighbor[0] + "-" + neighbor[1];
-	if (isForcedNeighbor && !stored[xy]){
-		//console.log("Neighbor " + JSON.stringify(neighbor) + " is forced! Adding to neighbors and stored.")
-		neighbors.push(neighbor);
-		stored[xy] = true;
-	} else {
-		//console.log("Is not a forced neighbor..");
-	}
-	//return;
-}
 
 function greedyBestFirstSearch() {
 	var pathFound = false;
